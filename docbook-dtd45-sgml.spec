@@ -1,15 +1,15 @@
 %define ver	4.5
 %define sver	45
-Summary:	DocBook - DTD for technical documentation
-Summary(pl.UTF-8):	DocBook - DTD przeznaczone do pisania dokumentacji technicznej
+Summary:	DocBook 4.5 SGML - DTD for technical documentation
+Summary(pl.UTF-8):	DocBook 4.5 SGML - DTD przeznaczone do pisania dokumentacji technicznej
 Name:		docbook-dtd%{sver}-sgml
 Version:	1.0
-Release:	1
+Release:	2
 License:	Free
 Group:		Applications/Publishing/SGML
-URL:		http://www.oasis-open.org/docbook/
 Source0:	http://www.oasis-open.org/docbook/sgml/%{ver}/docbook-%{ver}.zip
 # Source0-md5:	07c581f4bbcba6d3aac85360a19f95f7
+URL:		http://www.oasis-open.org/docbook/
 BuildRequires:	unzip
 Requires(post,postun):	sgml-common >= 0.5
 Requires:	sgml-common >= 0.5
@@ -21,13 +21,15 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-DocBook - DTD for technical documentation.
+DocBook 4.5 SGML - DTD for technical documentation.
 
 %description -l pl.UTF-8
 DocBook DTD jest zestawem definicji dokumentów przeznaczonych do
 tworzenia dokumentacji programistycznej. Stosowany jest do pisania
 podręczników systemowych, instrukcji technicznych jak i wielu innych
 ciekawych rzeczy.
+
+This package contains DocBook 4.5 SGML DTD.
 
 %prep
 %setup -q -c
@@ -37,10 +39,10 @@ chmod 644 *
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/sgml/docbook/sgml-dtd-%{ver}
 
-install  *.dtd *.mod *.dcl $RPM_BUILD_ROOT%{_datadir}/sgml/docbook/sgml-dtd-%{ver}/
+install *.dtd *.mod *.dcl $RPM_BUILD_ROOT%{_datadir}/sgml/docbook/sgml-dtd-%{ver}
 
 # install catalog (but filter out ISO entities)
-grep -v 'ISO ' docbook.cat > $RPM_BUILD_ROOT%{_datadir}/sgml/docbook/sgml-dtd-%{ver}/catalog
+grep -v -E 'ISO 8879|iso-.*\.gml' docbook.cat > $RPM_BUILD_ROOT%{_datadir}/sgml/docbook/sgml-dtd-%{ver}/catalog
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -57,4 +59,4 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%{_datadir}/sgml/docbook/*
+%{_datadir}/sgml/docbook/sgml-dtd-%{ver}

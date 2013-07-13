@@ -27,9 +27,7 @@ DocBook 4.5 SGML - DTD for technical documentation.
 DocBook DTD jest zestawem definicji dokumentów przeznaczonych do
 tworzenia dokumentacji programistycznej. Stosowany jest do pisania
 podręczników systemowych, instrukcji technicznych jak i wielu innych
-ciekawych rzeczy.
-
-This package contains DocBook 4.5 SGML DTD.
+ciekawych rzeczy. Ten pakiet zawiera wersję DocBook 4.5 SGML DTD.
 
 %prep
 %setup -q -c

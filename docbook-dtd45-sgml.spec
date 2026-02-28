@@ -4,7 +4,7 @@ Summary:	DocBook 4.5 SGML - DTD for technical documentation
 Summary(pl.UTF-8):	DocBook 4.5 SGML - DTD przeznaczone do pisania dokumentacji technicznej
 Name:		docbook-dtd%{sver}-sgml
 Version:	1.0
-Release:	2
+Release:	3
 License:	Free
 Group:		Applications/Publishing/SGML
 Source0:	http://www.oasis-open.org/docbook/sgml/%{ver}/docbook-%{ver}.zip
